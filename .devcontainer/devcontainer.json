@@ -1,5 +1,5 @@
 {
-	"name": "My Chatbot Infrastructure",
+	"name": "Shared Infrastructure",
 	"dockerComposeFile": "./compose.yml",
 	"service": "app",
 	"workspaceFolder": "/home/node/app",
