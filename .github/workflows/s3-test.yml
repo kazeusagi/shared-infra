@@ -17,8 +17,8 @@ jobs:
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{secrets.AWS_ASSUME_ROLE_ARN}}
           aws-region: ${{secrets.AWS_REGION}}
+          role-to-assume: ${{secrets.AWS_ASSUME_ROLE_ARN}}
 
       - name: expect
         run: aws s3 ls
