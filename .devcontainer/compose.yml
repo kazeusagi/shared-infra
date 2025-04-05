@@ -1,0 +1,10 @@
+services:
+  app:
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/home/node/app
+      - ../.aws:/home/node/.aws # 認証情報の保持
+    tty: true
