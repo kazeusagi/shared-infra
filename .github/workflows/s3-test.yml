@@ -1,3 +1,5 @@
+name: OIDC Test
+
 on:
   push:
     branches:
