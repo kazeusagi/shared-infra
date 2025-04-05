@@ -4,8 +4,9 @@ on:
       - main
 
 jobs:
-  apply:
+  test:
     runs-on: ubuntu-latest
+    environment: main
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -16,5 +17,5 @@ jobs:
           role-to-assume: ${{secrets.AWS_ROLE_ARN}}
           aws-region: ${{secrets.AWS_REGION}}
 
-      - name: test
+      - name: expect
         run: aws s3 ls
