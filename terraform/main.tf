@@ -1,3 +1,11 @@
+# 共通で利用されるリソースを作成する
+
+# S3
+module "s3" {
+  source = "./modules/s3"
+}
+
+# OIDC idP
 module "iam_oidc_provider" {
   source = "./modules/iam-oidc-provider"
 }
