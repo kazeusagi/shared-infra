@@ -18,3 +18,12 @@ data "aws_iam_policy_document" "assume_role" {
     }
   }
 }
+
+# 各環境への権限ポリシー
+data "aws_iam_policy_document" "allow_assume_target_roles" {
+  statement {
+    effect    = "Allow"
+    actions   = ["sts:AssumeRole"]
+    resources = var.resources
+  }
+}
