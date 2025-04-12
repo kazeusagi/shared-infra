@@ -1,3 +1,4 @@
+# 信頼ポリシー
 data "aws_iam_policy_document" "assume_role" {
   statement {
     effect  = "Allow"
@@ -14,7 +15,7 @@ data "aws_iam_policy_document" "assume_role" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = var.repos
+      values   = var.allowed_repositories
     }
   }
 }
@@ -24,6 +25,6 @@ data "aws_iam_policy_document" "allow_assume_target_roles" {
   statement {
     effect    = "Allow"
     actions   = ["sts:AssumeRole"]
-    resources = var.resources
+    resources = var.allowed_target_roles
   }
 }

@@ -10,7 +10,7 @@ resource "aws_iam_role_policy_attachment" "assume_role" {
 
 # 各環境への権限ポリシーを付与
 resource "aws_iam_policy" "this" {
-  name   = "GitHubActionsOIDCRoleAllowAssumeTargetRolesPolicy"
+  name   = "${var.name}_AllowAssumeTargetRolesPolicy"
   policy = data.aws_iam_policy_document.allow_assume_target_roles.json
 }
 resource "aws_iam_role_policy_attachment" "allow_assume_target_roles" {

@@ -8,12 +8,12 @@ variable "iam_oidc_provider_arn" {
   description = "OIDCプロバイダーのARN"
 }
 
-variable "repos" {
+variable "allowed_repositories" {
   type        = list(string)
   description = "許可するリポジトリの一覧"
 }
 
-variable "resources" {
+variable "allowed_target_roles" {
   type        = list(string)
-  description = "各環境への権限ポリシー"
+  description = "許可するターゲットロールの一覧"
 }
