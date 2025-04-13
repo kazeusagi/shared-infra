@@ -21,8 +21,7 @@ module "iam_oidc_role" {
 }
 
 # 上記のロールに付与する許可ポリシー
-# MEMO: 初回実行時はcount=0にして許可ポリシーを作成しないようにする
-#       → allowed_assume_rolesが空だとエラーになるため
+# allowed_assume_rolesが空だと作成しない
 module "iam_oidc_policy" {
   source               = "./modules/iam_oidc/policy"
   name                 = "GithubActionsOIDCRole_AllowAssumeRolesPolicy"
