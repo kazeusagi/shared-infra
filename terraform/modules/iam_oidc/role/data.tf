@@ -1,4 +1,4 @@
-# 信頼ポリシー
+# リポジトリの許可設定等を定義したカスタム信頼ポリシー
 data "aws_iam_policy_document" "assume_role" {
   statement {
     effect  = "Allow"
@@ -17,14 +17,5 @@ data "aws_iam_policy_document" "assume_role" {
       variable = "token.actions.githubusercontent.com:sub"
       values   = var.allowed_repositories
     }
-  }
-}
-
-# 各環境への権限ポリシー
-data "aws_iam_policy_document" "allow_assume_target_roles" {
-  statement {
-    effect    = "Allow"
-    actions   = ["sts:AssumeRole"]
-    resources = var.allowed_target_roles
   }
 }

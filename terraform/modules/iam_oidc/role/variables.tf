@@ -12,8 +12,3 @@ variable "allowed_repositories" {
   type        = list(string)
   description = "許可するリポジトリの一覧"
 }
-
-variable "allowed_target_roles" {
-  type        = list(string)
-  description = "許可するターゲットロールの一覧"
-}
