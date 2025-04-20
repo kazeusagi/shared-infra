@@ -1,5 +1,6 @@
 # リポジトリの許可設定等を定義したカスタム信頼ポリシー
 data "aws_iam_policy_document" "assume_role" {
+  # Github Actionsからの信頼ポリシー
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRoleWithWebIdentity"]
@@ -16,6 +17,16 @@ data "aws_iam_policy_document" "assume_role" {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
       values   = var.allowed_repositories
+    }
+  }
+
+  # ローカル環境のSSOからの信頼ポリシー
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "AWS"
+      identifiers = var.allowed_sso_roles
     }
   }
 }

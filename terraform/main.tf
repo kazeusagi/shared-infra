@@ -18,6 +18,7 @@ module "iam_oidc_role" {
     "repo:kazeusagi/terraform-aws-template:environment:prod",
     "repo:kazeusagi/terraform-aws-template:environment:dev",
   ]
+  allowed_sso_roles = local.allowed_sso_roles
 }
 
 # 上記のロールに付与する許可ポリシー
@@ -26,5 +27,5 @@ module "iam_oidc_policy" {
   source               = "./modules/iam_oidc/policy"
   name                 = "GithubActionsOIDCRole_AllowAssumeRolesPolicy"
   target_role_name     = module.iam_oidc_role.name
-  allowed_assume_roles = []
+  allowed_assume_roles = local.allowed_assume_roles
 }

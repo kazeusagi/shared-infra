@@ -1,8 +1,7 @@
-# data "terraform_remote_state" "terraform_aws_template_state" {
-#   backend = "s3"
-#   config = {
-#     bucket = "kazeusagi-tfstate"
-#     key    = "terraform-aws-template/terraform.tfstate"
-#     region = "ap-northeast-1"
-#   }
-# }
+data "aws_ssm_parameter" "allowed_sso_roles" {
+  name = "/shared/allowed_sso_roles"
+}
+
+data "aws_ssm_parameter" "allowed_assume_roles" {
+  name = "/shared/allowed_assume_roles"
+}
