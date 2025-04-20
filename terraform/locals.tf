@@ -8,4 +8,9 @@ locals {
     for row in split(",", data.aws_ssm_parameter.allowed_assume_roles.value) :
     trimspace(row) # 前後のスペースを削除
   ]
+
+  allowed_repositories = [
+    for row in split(",", data.aws_ssm_parameter.allowed_repositories.value) :
+    trimspace(row) # 前後のスペースを削除
+  ]
 }

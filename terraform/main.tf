@@ -11,14 +11,8 @@ module "iam_oidc_role" {
   source                = "./modules/iam_oidc/role"
   name                  = "GithubActionsOIDCRole"
   iam_oidc_provider_arn = module.iam_oidc_provider.arn
-  allowed_repositories = [
-    # Shared
-    "repo:kazeusagi/shared-infra:ref:refs/heads/main",
-    # Terraform AWS Template
-    "repo:kazeusagi/terraform-aws-template:environment:prod",
-    "repo:kazeusagi/terraform-aws-template:environment:dev",
-  ]
-  allowed_sso_roles = local.allowed_sso_roles
+  allowed_repositories  = local.allowed_repositories
+  allowed_sso_roles     = local.allowed_sso_roles
 }
 
 # 上記のロールに付与する許可ポリシー
